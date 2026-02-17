@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Tus fuentes de Google siguen igual abajo */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Patrick+Hand&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Patrick+Hand&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Indie Flower', cursive;
+}
