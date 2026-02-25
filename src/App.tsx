@@ -1,3 +1,4 @@
+import logo from './assets/logo.png';
 import React, { useState } from 'react';
 import { 
   Palette, 
@@ -169,12 +170,15 @@ export default function App() {
       <header className="relative z-10 pt-8 pb-4 px-4 text-center">
         <div className="max-w-4xl mx-auto border-b-4 border-double border-red-500 pb-4 mb-8 transform -rotate-1">
           <div className="inline-block bg-white p-6 shadow-lg transform rotate-1 border border-gray-200 rounded-sm">
-             <h1 className="text-4xl md:text-6xl font-extrabold" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
+            {/*<h1 className="text-4xl md:text-6xl font-extrabold" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
                 CLUB TALLER <span className="text-green-600">HOMESCHOOL</span>
-             </h1>
+             </h1>*/}
+            {/* AQUÍ REEMPLAZAMOS EL H1 POR LA IMAGEN */}
+            <img src={logo} alt="Club Taller Logo" className="h-24 md:h-48 lg:h-56 mx-auto object-contain" />
           </div>
         </div>
       </header>
+
 
       <main className="relative z-10 max-w-6xl mx-auto px-4">
         {view === 'infographic' && (
@@ -214,6 +218,24 @@ export default function App() {
                   </HandDrawnBorder>
                 </div>
               ))}
+            </div>
+            {/* --- SECCIÓN DE TESTIMONIOS (Pégalo aquí) --- */}
+            <div className="mt-16 mb-10">
+              <h2 className="text-3xl font-bold text-center mb-8" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
+                Lo que dicen nuestras familias...
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  { name: "Familia Rodríguez", text: "Club Taller nos dio la confianza que necesitábamos para empezar homeschool. El material es increíble.", color: "bg-yellow-50" },
+                  { name: "Camilo, 9 años", text: "¡Me encanta el taller de arte! Siento que puedo crear cualquier cosa con lo que me envían.", color: "bg-blue-50" },
+                  { name: "Mamá de Sofía", text: "La metodología Discovery Active Learning realmente funciona. Sofía está más motivada que nunca.", color: "bg-green-50" }
+                ].map((t, i) => (
+                  <div key={i} className={`${t.color} p-6 shadow-sm border border-gray-200 transform ${i % 2 === 0 ? 'rotate-1' : '-rotate-1'}`}>
+                    <p className="italic text-gray-700 mb-4" style={{ fontFamily: 'Indie Flower', fontSize: '1.1rem' }}>"{t.text}"</p>
+                    <p className="text-right font-bold text-sm text-gray-500">- {t.name}</p>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="text-center mt-12">
               <button 
@@ -310,6 +332,28 @@ export default function App() {
           </div>
         )}
       </main>
+      {/* --- FOOTER (Pégalo aquí) --- */}
+      <footer className="relative z-10 mt-20 py-10 border-t border-dashed border-gray-300 bg-white/50">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" style={{ fontFamily: 'Indie Flower' }}>
+            <div className="flex flex-col">
+              <span className="font-bold text-green-700">WhatsApp</span>
+              <span className="text-lg">305 298 0690</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-blue-700">Email</span>
+              <span className="text-lg">info@homeschoolcolombia.com</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-red-700">Comunidad</span>
+              <span className="text-lg">@clubtallerhomeschool</span>
+            </div>
+          </div>
+          <p className="text-xs text-gray-400 uppercase tracking-widest">
+            © 2026 Club Taller Homeschool • Discovery Active Learning
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
