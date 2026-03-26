@@ -220,23 +220,68 @@ export default function App() {
               ))}
             </div>
             {/* --- SECCIÓN DE TESTIMONIOS (Pégalo aquí) --- */}
-            <div className="mt-16 mb-10">
-              <h2 className="text-3xl font-bold text-center mb-8" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
-                Lo que dicen nuestras familias...
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  { name: "Familia Rodríguez", text: "Club Taller nos dio la confianza que necesitábamos para empezar homeschool. El material es increíble.", color: "bg-yellow-50" },
-                  { name: "Camilo, 9 años", text: "¡Me encanta el taller de arte! Siento que puedo crear cualquier cosa con lo que me envían.", color: "bg-blue-50" },
-                  { name: "Mamá de Sofía", text: "La metodología Discovery Active Learning realmente funciona. Sofía está más motivada que nunca.", color: "bg-green-50" }
-                ].map((t, i) => (
-                  <div key={i} className={`${t.color} p-6 shadow-sm border border-gray-200 transform ${i % 2 === 0 ? 'rotate-1' : '-rotate-1'}`}>
-                    <p className="italic text-gray-700 mb-4" style={{ fontFamily: 'Indie Flower', fontSize: '1.1rem' }}>"{t.text}"</p>
-                    <p className="text-right font-bold text-sm text-gray-500">- {t.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* --- VIDEO TESTIMONIAL --- */}
+{/* --- SECCIÓN DE EVIDENCIA Y TESTIMONIOS --- */}
+<section className="mt-16 mb-20">
+  <h2 className="text-4xl font-bold text-center mb-10" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
+    Historias de éxito en Club Taller
+  </h2>
+
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    
+    {/* Columna Izquierda: El Video (Evidencia Visual) */}
+    <div className="px-4">
+      <HandDrawnBorder className="bg-white p-2 shadow-2xl transform -rotate-1">
+        <div className="relative pb-[177.77%] h-0 overflow-hidden rounded-lg bg-gray-100">
+          <iframe 
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/3d-C3sXhRgk" 
+            title="Testimonio María Antonia y Lucía"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="p-4 text-center">
+          <p className="text-gray-600 font-medium" style={{ fontFamily: 'Indie Flower', fontSize: '1.2rem' }}>
+            "De escribir solo su nombre a dominar la letra cursiva con amor."
+          </p>
+        </div>
+      </HandDrawnBorder>
+    </div>
+
+    {/* Columna Derecha: Otros Testimonios (Refuerzo Escrito) */}
+    <div className="space-y-6 px-4">
+      {[
+        { 
+          name: "María Antonia (Mamá de Lucía)", 
+          text: "Buscábamos nivelación y encontramos vocación. Lucía no solo aprendió a escribir, sino que se divirtió en cada clase. ¡Gracias profe Patricia!", 
+          color: "bg-yellow-50",
+          rotate: "rotate-1"
+        },
+        { 
+          name: "Familia Rodríguez", 
+          text: "El material físico que llega a casa es una motivación extra. Nuestros hijos esperan su 'cajita' cada mes con ansias.", 
+          color: "bg-blue-50",
+          rotate: "-rotate-1"
+        },
+        { 
+          name: "Mamá de Santiago (8 años)", 
+          text: "Discovery Active Learning nos cambió la vida. Mi hijo ahora investiga por su cuenta, tiene criterio y ama aprender.", 
+          color: "bg-green-50",
+          rotate: "rotate-1"
+        }
+      ].map((t, i) => (
+        <div key={i} className={`${t.color} p-6 shadow-md border border-gray-100 transform ${t.rotate} hover:rotate-0 transition-transform`}>
+          <p className="italic text-gray-700 mb-3" style={{ fontFamily: 'Indie Flower', fontSize: '1.15rem' }}>
+            "{t.text}"
+          </p>
+          <p className="text-right font-bold text-sm text-gray-500">- {t.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
             <div className="text-center mt-12">
               <button 
                 onClick={() => setView('form')}
