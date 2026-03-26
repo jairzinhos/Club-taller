@@ -19,9 +19,9 @@ import { supabase } from './supabaseClient';
 const colors = {
   paper: '#fdfdfd',
   grid: '#e0e0e0',
-  inkBlue: '#1e40af',
-  inkGreen: '#15803d',
-  inkRed: '#b91c1c',
+  inkBlue: '#1e3a8a',  // Azul marino profundo del texto "CLUB TALLER"
+  inkGreen: '#65a30d', // Verde vivo del texto "HOMESCHOOL" y naturaleza
+  inkRed: '#ea580c',   // Naranja/Rojo de "Discovery Active" y detalles de la ropa
   pencil: '#4b5563'
 };
 
@@ -342,7 +342,7 @@ export default function App() {
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-blue-700">Email</span>
-              <span className="text-lg">info@homeschoolcolombia.com</span>
+              <span className="text-lg">infoclubtallerhs@gmail.com</span>
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-red-700">Comunidad</span>
@@ -354,6 +354,20 @@ export default function App() {
           </p>
         </div>
       </footer>
+      {/* Botón Flotante de WhatsApp */}
+      <a 
+        href="https://wa.me/573052980690?text=Hola!%20Quiero%20más%20información%20sobre%20Club%20Taller%20Homeschool" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group"
+        aria-label="Contactar por WhatsApp"
+      >
+        <MessageCircle size={32} />
+        {/* Globito de texto que aparece al pasar el mouse (opcional) */}
+        <span className="absolute right-16 bg-white text-gray-800 px-3 py-1 rounded-lg text-sm font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
+          ¿Tienes dudas? ¡Escríbenos!
+        </span>
+      </a>
     </div>
   );
 }
