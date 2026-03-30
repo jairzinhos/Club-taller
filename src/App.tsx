@@ -222,64 +222,58 @@ export default function App() {
             {/* --- SECCIÓN DE TESTIMONIOS (Pégalo aquí) --- */}
             {/* --- VIDEO TESTIMONIAL --- */}
 {/* --- SECCIÓN DE EVIDENCIA Y TESTIMONIOS --- */}
-<section className="mt-16 mb-20">
-  <h2 className="text-4xl font-bold text-center mb-10" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
-    Historias de éxito en Club Taller
+{/* --- SECCIÓN DE TESTIMONIOS EN VIDEO (EL MURO DE CONFIANZA) --- */}
+<section className="mt-16 mb-20 px-4 max-w-6xl mx-auto">
+  <h2 className="text-4xl font-bold text-center mb-4" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
+    Voces de nuestra Comunidad
   </h2>
+  <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto" style={{ fontFamily: 'Indie Flower', fontSize: '1.2rem' }}>
+    Mira cómo nuestras familias viven la experiencia Club Taller y el progreso real de sus hijos.
+  </p>
 
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-    
-    {/* Columna Izquierda: El Video (Evidencia Visual) */}
-    <div className="px-4">
-      <HandDrawnBorder className="bg-white p-2 shadow-2xl transform -rotate-1">
-        <div className="relative pb-[177.77%] h-0 overflow-hidden rounded-lg bg-gray-100">
-          <iframe 
-            className="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube.com/embed/3d-C3sXhRgk" 
-            title="Testimonio María Antonia y Lucía"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowFullScreen
-          ></iframe>
-        </div>
-        <div className="p-4 text-center">
-          <p className="text-gray-600 font-medium" style={{ fontFamily: 'Indie Flower', fontSize: '1.2rem' }}>
-            "De escribir solo su nombre a dominar la letra cursiva con amor."
-          </p>
-        </div>
-      </HandDrawnBorder>
-    </div>
-
-    {/* Columna Derecha: Otros Testimonios (Refuerzo Escrito) */}
-    <div className="space-y-6 px-4">
-      {[
-        { 
-          name: "María Antonia (Mamá de Lucía)", 
-          text: "Buscábamos nivelación y encontramos vocación. Lucía no solo aprendió a escribir, sino que se divirtió en cada clase. ¡Gracias profe Patricia!", 
-          color: "bg-yellow-50",
-          rotate: "rotate-1"
-        },
-        { 
-          name: "Familia Rodríguez", 
-          text: "El material físico que llega a casa es una motivación extra. Nuestros hijos esperan su 'cajita' cada mes con ansias.", 
-          color: "bg-blue-50",
-          rotate: "-rotate-1"
-        },
-        { 
-          name: "Mamá de Santiago (8 años)", 
-          text: "Discovery Active Learning nos cambió la vida. Mi hijo ahora investiga por su cuenta, tiene criterio y ama aprender.", 
-          color: "bg-green-50",
-          rotate: "rotate-1"
-        }
-      ].map((t, i) => (
-        <div key={i} className={`${t.color} p-6 shadow-md border border-gray-100 transform ${t.rotate} hover:rotate-0 transition-transform`}>
-          <p className="italic text-gray-700 mb-3" style={{ fontFamily: 'Indie Flower', fontSize: '1.15rem' }}>
-            "{t.text}"
-          </p>
-          <p className="text-right font-bold text-sm text-gray-500">- {t.name}</p>
-        </div>
-      ))}
-    </div>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {[
+      { 
+        id: "3d-C3sXhRgk", 
+        name: "Lucía (5 años)", 
+        family: "Familia de María Antonia",
+        quote: "De trazos simples a escribir en letra cursiva con amor."
+      },
+      { 
+        id: "ZM8DwtPyQZE", 
+        name: "Marquito", 
+        family: "Familia de Carolina Cubes",
+        quote: "Desarrollo integral: lectura, escritura y clases de música."
+      },
+      { 
+        id: "wjJ2s-teG_8", 
+        name: "María José (4 años)", 
+        family: "Familia Benavides Galvis",
+        quote: "Estimulación temprana, arte e inglés desde el juego."
+      }
+    ].map((video, index) => (
+      <div key={index} className="flex flex-col">
+        <HandDrawnBorder className="bg-white p-2 shadow-xl transform hover:rotate-1 transition-transform duration-300">
+          <div className="relative pb-[177.77%] h-0 overflow-hidden rounded-lg bg-gray-100">
+            <iframe 
+              className="absolute top-0 left-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${video.id}`}
+              title={video.name}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="p-4 text-center">
+            <h3 className="font-bold text-lg" style={{ color: colors.inkBlue }}>{video.name}</h3>
+            <p className="text-xs text-gray-400 mb-2 uppercase tracking-widest">{video.family}</p>
+            <p className="text-gray-700 italic leading-tight" style={{ fontFamily: 'Indie Flower', fontSize: '1.1rem' }}>
+              "{video.quote}"
+            </p>
+          </div>
+        </HandDrawnBorder>
+      </div>
+    ))}
   </div>
 </section>
             <div className="text-center mt-12">
