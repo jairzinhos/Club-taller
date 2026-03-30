@@ -41,36 +41,32 @@ const contentSections = [
   {
     id: 'methodology',
     title: 'Discovery Active Learning',
-    icon: <Brain className="w-10 h-10 text-blue-700" />,
-    color: 'text-blue-700',
-    borderColor: 'border-blue-700',
+    icon: <Brain className="w-10 h-10" />,
+    colorCode: colors.inkBlue,
     description: "Nuestra metodología propia. Aprendizaje significativo basado en el descubrimiento.",
     details: ["Proyectos e Investigación.", "Criterio propio.", "Evaluación cualitativa.", "Planeación estratégica."]
   },
   {
     id: 'arts',
     title: 'Arte, Música e Inglés',
-    icon: <Palette className="w-10 h-10 text-red-600" />,
-    color: 'text-red-600',
-    borderColor: 'border-red-600',
+    icon: <Palette className="w-10 h-10" />,
+    colorCode: colors.inkRed,
     description: "No son 'relleno', son la base. El juego y la música son ejes transversales.",
     details: ["Arte y música integrada.", "Inglés natural.", "Expresión corporal."]
   },
   {
     id: 'grades',
     title: 'De Jardín a Quinto',
-    icon: <GraduationCap className="w-10 h-10 text-green-700" />,
-    color: 'text-green-700',
-    borderColor: 'border-green-700',
+    icon: <GraduationCap className="w-10 h-10" />,
+    colorCode: colors.inkGreen,
     description: "Acompañamos y certificamos procesos de educación en casa.",
     details: ["Niños de 1 a 12 años.", "Certificado Min. Educación.", "Sesiones en tiempo real."]
   },
   {
     id: 'community',
     title: 'Comunidad Homeschool',
-    icon: <Users className="w-10 h-10 text-blue-600" />,
-    color: 'text-blue-600',
-    borderColor: 'border-blue-600',
+    icon: <Users className="w-10 h-10" />,
+    colorCode: colors.inkBlue,
     description: "Apoyamos a las familias con una propuesta flexible y personalizada.",
     details: ["Acompañamiento a padres.", "Cajita mensual física.", "Escuela para padres."]
   }
@@ -168,7 +164,7 @@ export default function App() {
       </div>
 
       <header className="relative z-10 pt-8 pb-4 px-4 text-center">
-        <div className="max-w-4xl mx-auto border-b-4 border-double border-red-500 pb-4 mb-8 transform -rotate-1">
+        <div className="max-w-4xl mx-auto border-b-4 border-double pb-4 mb-8 transform -rotate-1" style={{ borderColor: colors.inkRed }}>
           <div className="inline-block bg-white p-6 shadow-lg transform rotate-1 border border-gray-200 rounded-sm">
             {/*<h1 className="text-4xl md:text-6xl font-extrabold" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
                 CLUB TALLER <span className="text-green-600">HOMESCHOOL</span>
@@ -190,9 +186,9 @@ export default function App() {
                   <HandDrawnBorder className={`bg-white h-full cursor-pointer shadow-lg ${readSections.includes(section.id) ? 'bg-green-50/30' : ''}`}>
                     <div className="p-6 h-full flex flex-col" onClick={() => handleSectionClick(section.id)}>
                       <div className="flex items-center gap-3 mb-4">
-                        <div className={`p-3 rounded-full border-2 border-dashed ${section.borderColor}`}>{section.icon}</div>
-                        <h3 className={`text-xl font-bold ${section.color}`} style={{ fontFamily: 'Indie Flower' }}>{section.title}</h3>
-                        {readSections.includes(section.id) && <CheckCircle className="ml-auto text-green-500" />}
+                        <div className="p-3 rounded-full border-2 border-dashed" style={{ borderColor: section.colorCode, color: section.colorCode }}>{section.icon}</div>
+                        <h3 className="text-xl font-bold" style={{ fontFamily: 'Indie Flower', color: section.colorCode }}>{section.title}</h3>
+                        {readSections.includes(section.id) && <CheckCircle className="ml-auto" style={{ color: colors.inkGreen }} />}
                       </div>
 
                       {expandedSection === section.id ? (
@@ -208,7 +204,7 @@ export default function App() {
                       ) : (
                         <div className="mt-auto pt-4 border-t border-dashed border-gray-200">
                           <p className="text-gray-500 text-sm line-clamp-2 mb-4">{section.description}</p>
-                          <div className="flex items-center justify-between text-blue-600 font-bold">
+                          <div className="flex items-center justify-between font-bold" style={{ color: colors.inkBlue }}>
                             <span className="text-sm uppercase tracking-wider">Leer más</span>
                             <ChevronRight size={18} />
                           </div>
@@ -280,7 +276,8 @@ export default function App() {
               <button 
                 onClick={() => setView('form')}
                 disabled={!allRead}
-                className={`px-10 py-5 text-xl font-bold text-white rounded-lg shadow-xl transition-all ${allRead ? 'bg-blue-700 hover:scale-105' : 'bg-gray-400 opacity-50 cursor-not-allowed'}`}
+                className={`px-10 py-5 text-xl font-bold text-white rounded-lg shadow-xl transition-all ${allRead ? 'hover:scale-105' : 'bg-gray-400 opacity-50 cursor-not-allowed'}`}
+                style={{ backgroundColor: allRead ? colors.inkGreen : undefined }}
               >
                 {allRead ? '¡Quiero ser Familia Club Taller!' : 'Lee las 4 notas para habilitar el botón'}
               </button>
@@ -290,10 +287,10 @@ export default function App() {
 
         {view === 'form' && (
           <div className="max-w-2xl mx-auto animate-in zoom-in-95 duration-500">
-             <button onClick={() => setView('infographic')} className="mb-4 text-blue-600 font-bold hover:underline">← Volver</button>
+             <button onClick={() => setView('infographic')} className="mb-4 font-bold hover:underline" style={{ color: colors.inkBlue }}>← Volver</button>
              <HandDrawnBorder className="bg-white p-8 md:p-10 shadow-2xl relative">
                 <Tape />
-                <h2 className="text-3xl font-bold text-blue-800 mb-6 text-center" style={{ fontFamily: 'Indie Flower' }}>Validación de Ingreso</h2>
+                <h2 className="text-3xl font-bold mb-6 text-center" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>Validación de Ingreso</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {quizQuestions.map((q) => (
                     <div key={q.id} className="bg-blue-50 p-4 rounded-lg border border-blue-100">
@@ -350,7 +347,8 @@ export default function App() {
                   <button 
                     type="submit" 
                     disabled={loading}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg text-xl shadow-lg flex items-center justify-center gap-3 disabled:opacity-50"
+                    className="w-full text-white font-bold py-4 rounded-lg text-xl shadow-lg flex items-center justify-center gap-3 disabled:opacity-50 transition-transform hover:scale-105"
+                    style={{ backgroundColor: colors.inkGreen }}
                   >
                     {loading ? 'Guardando...' : <><Send size={24} /> Enviar Solicitud</>}
                   </button>
@@ -361,8 +359,8 @@ export default function App() {
 
         {view === 'success' && (
           <div className="max-w-xl mx-auto text-center animate-in bounce-in duration-700">
-            <HandDrawnBorder className="bg-white p-10 shadow-2xl border-t-8 border-green-500">
-              <h2 className="text-4xl font-bold text-green-700 mb-4" style={{ fontFamily: 'Indie Flower' }}>¡Excelente!</h2>
+            <HandDrawnBorder className="bg-white p-10 shadow-2xl border-t-8" style={{ borderTopColor: colors.inkGreen }}>
+              <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Indie Flower', color: colors.inkGreen }}>¡Excelente!</h2>
               <p className="text-xl text-gray-600 mb-8">Datos guardados. Ya puedes contactarnos.</p>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white font-bold py-4 px-8 rounded-full shadow-lg inline-flex items-center gap-3 text-lg transition-transform hover:scale-105">
                 <MessageCircle /> Finalizar por WhatsApp
@@ -376,15 +374,15 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" style={{ fontFamily: 'Indie Flower' }}>
             <div className="flex flex-col">
-              <span className="font-bold text-green-700">WhatsApp</span>
+              <span className="font-bold" style={{ color: colors.inkGreen }}>WhatsApp</span>
               <span className="text-lg">305 298 0690</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-blue-700">Email</span>
+              <span className="font-bold" style={{ color: colors.inkBlue }}>Email</span>
               <span className="text-lg">infoclubtallerhs@gmail.com</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-red-700">Comunidad</span>
+              <span className="font-bold" style={{ color: colors.inkRed }}>Comunidad</span>
               <span className="text-lg">@clubtallerhomeschool</span>
             </div>
           </div>
