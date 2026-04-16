@@ -17,8 +17,8 @@ import { supabase } from './supabaseClient';
 
 // --- CONFIGURACIÓN DE COLORES ---
 const colors = {
-  paper: '#fdfdfd',
-  grid: '#e0e0e0',
+  paper: '#fcf8f2', // Nuevo: Crema/marfil cálido que da sensación de cuaderno de dibujo
+  grid: '#c7d2fe',  // Nuevo: Un azul lavanda/pastel suave que le da identidad a la cuadrícula
   inkBlue: '#1e3a8a',  // Azul marino profundo del texto "CLUB TALLER"
   inkGreen: '#65a30d', // Verde vivo del texto "HOMESCHOOL" y naturaleza
   inkRed: '#ea580c',   // Naranja/Rojo de "Discovery Active" y detalles de la ropa
@@ -156,7 +156,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen font-sans text-gray-700 relative pb-10" style={{ backgroundColor: colors.paper }}>
-      <div className="absolute inset-0 z-0 opacity-30 pointer-events-none" 
+      {/* Cambiamos opacity-30 por opacity-60 para que la cuadrícula tenga más presencia */}
+      <div className="absolute inset-0 z-0 opacity-60 pointer-events-none" 
         style={{ 
           backgroundImage: `linear-gradient(${colors.grid} 1px, transparent 1px), linear-gradient(90deg, ${colors.grid} 1px, transparent 1px)`,
           backgroundSize: '20px 20px'
