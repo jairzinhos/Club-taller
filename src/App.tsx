@@ -166,12 +166,24 @@ export default function App() {
 
       <header className="relative z-10 pt-8 pb-4 px-4 text-center">
         <div className="max-w-4xl mx-auto border-b-4 border-double pb-4 mb-8 transform -rotate-1" style={{ borderColor: colors.inkRed }}>
-          <div className="inline-block bg-white p-6 shadow-lg transform rotate-1 border border-gray-200 rounded-sm">
-            {/*<h1 className="text-4xl md:text-6xl font-extrabold" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
-                CLUB TALLER <span className="text-green-600">HOMESCHOOL</span>
-             </h1>*/}
-            {/* AQUÍ REEMPLAZAMOS EL H1 POR LA IMAGEN */}
-            <img src={logo} alt="Club Taller Logo" className="h-24 md:h-48 lg:h-56 mx-auto object-contain" />
+          <div className="inline-block bg-white p-6 md:p-10 shadow-lg transform rotate-1 border border-gray-200 rounded-sm">
+      
+            {/* Tu Logo Actual */}
+            <img src={logo} alt="Club Taller Logo" className="h-24 md:h-40 lg:h-48 mx-auto object-contain" />
+
+            {/* --- NUEVO TÍTULO EMOCIONAL --- */}
+            <h2 
+              className="mt-6 text-2xl md:text-3xl lg:text-4xl font-bold leading-tight max-w-2xl mx-auto"
+              style={{ 
+                fontFamily: 'Indie Flower', 
+                color: colors.inkBlue,
+                // Un pequeño ajuste de espaciado entre letras para que parezca más caligrafía real
+                letterSpacing: '-0.02em' 
+              }}
+            >
+             "Deja atrás la confusión y regala a tus hijos la educación que siempre soñaste"
+            </h2>
+      
           </div>
         </div>
       </header>
