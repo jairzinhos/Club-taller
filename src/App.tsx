@@ -1,4 +1,5 @@
 import logo from './assets/logo.png';
+import Patricia from './assets/Patricia.png';
 import React, { useState } from 'react';
 import { 
   Palette, 
@@ -188,6 +189,104 @@ export default function App() {
         </div>
       </header>
 
+      {/* --- SECCIÓN: CONOCE A TU GUÍA (PATRICIA RIVEROS) --- */}
+<section className="mb-20 px-4 max-w-5xl mx-auto">
+  <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
+    
+    {/* Columna de la Imagen: Efecto Polaroid */}
+    <div className="w-full md:w-1/3 flex-shrink-0">
+      <div className="relative transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+        <div className="bg-white p-3 shadow-2xl border border-gray-100 pb-12">
+          {/* Aquí va la foto de Patricia */}
+          <div className="aspect-[4/5] bg-gray-200 overflow-hidden rounded-sm mb-4">
+             <img 
+               src={Patricia}
+               alt="Patricia Riveros - Fundadora" 
+               className="w-full h-full object-cover"
+             />
+          </div>
+          <p className="text-center font-bold text-lg" style={{ fontFamily: 'Indie Flower', color: colors.inkBlue }}>
+            Patricia Riveros
+          </p>
+          <p className="text-center text-xs uppercase tracking-widest text-gray-400">Fundadora & Mamá</p>
+        </div>
+        <Tape /> {/* Reutilizamos tu componente Tape para el efecto visual */}
+      </div>
+    </div>
+
+    {/* Columna de Texto: Estilo Carta */}
+    <div className="w-full md:w-2/3">
+      {/* Agregamos HandDrawnBorder con fondo blanco sólido para 'borrar' la cuadrícula de fondo */}
+      <HandDrawnBorder className="bg-white p-6 md:p-10 shadow-xl relative">
+        <h2 className="text-3xl font-bold leading-tight mb-6" 
+            style={{ 
+              fontFamily: 'Indie Flower', 
+              color: colors.inkBlue,
+              textShadow: '1px 1px 0px white' // Un pequeño truco para que la letra resalte aún más
+            }}>
+          Transforma la educación de tus hijos con la guía de quien ya recorrió el camino.
+        </h2>
+    
+        <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
+          <p>
+            Elegir la educación en casa es un acto de amor, pero también un desafío que genera preguntas: 
+            {/* Usamos un resaltado tipo "marcador" para frases clave */}
+            <span className="bg-yellow-100 px-1 font-medium">¿Estoy cubriendo lo que necesitan? ¿Cómo mantengo su interés?</span>
+          </p>
+
+          <p>
+            <strong>Soy Patricia Riveros</strong> y entiendo perfectamente esas dudas. Mi perspectiva es única porque une dos mundos:
+          </p>
+
+          <ul className="space-y-3">
+            <li className="flex gap-3 items-start">
+              <CheckCircle className="flex-shrink-0 mt-1" size={20} style={{ color: colors.inkGreen }} />
+              <span><strong>Más de 15 años como pedagoga</strong> profesional.</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <CheckCircle className="flex-shrink-0 mt-1" size={20} style={{ color: colors.inkGreen }} />
+              <span><strong>13 años como madre homeschooler</strong> viviendo esta realidad.</span>
+            </li>
+          </ul>
+
+          <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 mt-8" style={{ borderColor: colors.inkBlue }}>
+            <h3 className="font-bold mb-2" style={{ color: colors.inkBlue }}>Club Taller: 9 años creando comunidad.</h3>
+            <p className="text-base">
+              Fundé este espacio para ofrecer una guía clara, técnica y profundamente humana.
+            </p>
+          </div>
+
+          <div className="pt-6 border-t border-dashed border-gray-200 mt-6">
+            <p className="font-bold text-xl mb-4" style={{ fontFamily: 'Indie Flower', color: colors.inkRed }}>
+              🎁 Regalo de bienvenida: Ebook “El hogar como escuela de vida”
+            </p>
+         
+            {/* BOTÓN ACTUALIZADO PARA IR AL FORMULARIO */}
+            <button 
+              onClick={() => {
+                // 1. Cambiamos la vista a formulario
+                setView('form');
+    
+                // 2. Esperamos un instante a que el formulario aparezca en el DOM y bajamos
+                setTimeout(() => {
+                  const element = document.getElementById('seccion-formulario');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 100); 
+              }}
+              className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-all hover:gap-4"
+              style={{ color: colors.inkBlue }}
+            >
+              Quiero empezar y recibir el Ebook <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+      </HandDrawnBorder>
+    </div>
+  </div>
+</section>
+
 
       <main className="relative z-10 max-w-6xl mx-auto px-4">
         {view === 'infographic' && (
@@ -250,8 +349,8 @@ export default function App() {
       },
       { 
         id: "ZM8DwtPyQZE", 
-        name: "Marquito", 
-        family: "Familia de Carolina Cubes",
+        name: "Iam Emanuel (5 años)", 
+        family: "Familia Agudelo Cubes",
         quote: "Desarrollo integral: lectura, escritura y clases de música."
       },
       { 
@@ -299,7 +398,7 @@ export default function App() {
         )}
 
         {view === 'form' && (
-          <div className="max-w-2xl mx-auto animate-in zoom-in-95 duration-500">
+          <div id="seccion-formulario" className="max-w-2xl mx-auto animate-in zoom-in-95 duration-500">
              <button onClick={() => setView('infographic')} className="mb-4 font-bold hover:underline" style={{ color: colors.inkBlue }}>← Volver</button>
              <HandDrawnBorder className="bg-white p-8 md:p-10 shadow-2xl relative">
                 <Tape />
