@@ -1,5 +1,11 @@
 import logo from './assets/logo.png';
-import Patricia from './assets/Patricia.png';
+import Patricia from './assets/Patricia.jpg';
+import discoveryImg from './assets/Discovery-Active-learning-Club-Taller.jpg';
+import arteImg from './assets/Arte-Club-Taller.jpg';
+import musicaImg from './assets/musica-Club-Taller.png';
+import inglesImg from './assets/Ingles-Club-Taller.jpg';
+import gradosImg from './assets/de-Jardin-a-quinto-Club-Taller.jpg';
+import comunidadImg from './assets/Comunidad-Homeschool.jpg';
 import React, { useState } from 'react';
 import { 
   Palette, 
@@ -42,7 +48,7 @@ const contentSections = [
   {
     id: 'methodology',
     title: 'Discovery Active Learning',
-    icon: <Brain className="w-10 h-10" />,
+    icon: <img src={discoveryImg} alt="Discovery Active Learning" className="w-14 h-14 rounded-full object-cover shadow-sm" />,
     colorCode: colors.inkBlue,
     description: "Nuestra metodología propia. Aprendizaje significativo basado en el descubrimiento.",
     details: ["Proyectos e Investigación.", "Criterio propio.", "Evaluación cualitativa.", "Planeación estratégica."]
@@ -50,7 +56,14 @@ const contentSections = [
   {
     id: 'arts',
     title: 'Arte, Música e Inglés',
-    icon: <Palette className="w-10 h-10" />,
+    // Mosaico de 3 imágenes superpuestas
+    icon: (
+      <div className="relative w-16 h-16 transform hover:scale-110 transition-transform">
+        <img src={arteImg} alt="Arte" className="absolute top-0 left-0 w-10 h-10 rounded-full object-cover border-2 border-white shadow-md z-10" />
+        <img src={musicaImg} alt="Música" className="absolute bottom-0 left-2 w-9 h-9 rounded-full object-cover border-2 border-white shadow-md z-20" />
+        <img src={inglesImg} alt="Inglés" className="absolute top-1 right-0 w-10 h-10 rounded-full object-cover border-2 border-white shadow-md z-30" />
+      </div>
+    ),
     colorCode: colors.inkRed,
     description: "No son 'relleno', son la base. El juego y la música son ejes transversales.",
     details: ["Arte y música integrada.", "Inglés natural.", "Expresión corporal."]
@@ -58,7 +71,7 @@ const contentSections = [
   {
     id: 'grades',
     title: 'De Jardín a Quinto',
-    icon: <GraduationCap className="w-10 h-10" />,
+    icon: <img src={gradosImg} alt="De Jardín a Quinto" className="w-14 h-14 rounded-full object-cover shadow-sm" />,
     colorCode: colors.inkGreen,
     description: "Acompañamos y certificamos procesos de educación en casa.",
     details: ["Niños de 1 a 12 años.", "Certificado Min. Educación.", "Sesiones en tiempo real."]
@@ -66,7 +79,7 @@ const contentSections = [
   {
     id: 'community',
     title: 'Comunidad Homeschool',
-    icon: <Users className="w-10 h-10" />,
+    icon: <img src={comunidadImg} alt="Comunidad" className="w-14 h-14 rounded-full object-cover shadow-sm" />,
     colorCode: colors.inkBlue,
     description: "Apoyamos a las familias con una propuesta flexible y personalizada.",
     details: ["Acompañamiento a padres.", "Cajita mensual física.", "Escuela para padres."]
@@ -216,13 +229,12 @@ export default function App() {
 
     {/* Columna de Texto: Estilo Carta */}
     <div className="w-full md:w-2/3">
-      {/* Agregamos HandDrawnBorder con fondo blanco sólido para 'borrar' la cuadrícula de fondo */}
       <HandDrawnBorder className="bg-white p-6 md:p-10 shadow-xl relative">
         <h2 className="text-3xl font-bold leading-tight mb-6" 
             style={{ 
               fontFamily: 'Indie Flower', 
               color: colors.inkBlue,
-              textShadow: '1px 1px 0px white' // Un pequeño truco para que la letra resalte aún más
+              textShadow: '1px 1px 0px white' 
             }}>
           Transforma la educación de tus hijos con la guía de quien ya recorrió el camino.
         </h2>
@@ -230,7 +242,6 @@ export default function App() {
         <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
           <p>
             Elegir la educación en casa es un acto de amor, pero también un desafío que genera preguntas: 
-            {/* Usamos un resaltado tipo "marcador" para frases clave */}
             <span className="bg-yellow-100 px-1 font-medium">¿Estoy cubriendo lo que necesitan? ¿Cómo mantengo su interés?</span>
           </p>
 
@@ -238,49 +249,85 @@ export default function App() {
             <strong>Soy Patricia Riveros</strong> y entiendo perfectamente esas dudas. Mi perspectiva es única porque une dos mundos:
           </p>
 
-          <ul className="space-y-3">
+          <ul className="space-y-3 mb-6">
             <li className="flex gap-3 items-start">
               <CheckCircle className="flex-shrink-0 mt-1" size={20} style={{ color: colors.inkGreen }} />
-              <span><strong>Más de 15 años como pedagoga</strong> profesional.</span>
+              <span><strong>Más de 15 años como pedagoga</strong> y docente profesional, diseñando procesos de aprendizaje efectivos.</span>
             </li>
             <li className="flex gap-3 items-start">
               <CheckCircle className="flex-shrink-0 mt-1" size={20} style={{ color: colors.inkGreen }} />
-              <span><strong>13 años como madre homeschooler</strong> viviendo esta realidad.</span>
+              <span><strong>13 años como madre homeschooler</strong> viviendo en primera persona la realidad de educar en el hogar.</span>
             </li>
           </ul>
 
+      {/* HISTORIA DEL CLUB */}
           <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 mt-8" style={{ borderColor: colors.inkBlue }}>
-            <h3 className="font-bold mb-2" style={{ color: colors.inkBlue }}>Club Taller: 9 años creando comunidad.</h3>
+            <h3 className="font-bold mb-2 text-xl" style={{ color: colors.inkBlue }}>Club Taller Homeschool: 9 años creando comunidades con propósito.</h3>
             <p className="text-base">
-              Fundé este espacio para ofrecer una guía clara, técnica y profundamente humana.
+              Hace casi una década fundé este espacio para ofrecer lo que yo misma busqué al inicio: Una guía clara, técnica y profundamente humana. Aquí, la educación no es una imposición, es una experiencia significativa.
             </p>
           </div>
 
-          <div className="pt-6 border-t border-dashed border-gray-200 mt-6">
-            <p className="font-bold text-xl mb-4" style={{ fontFamily: 'Indie Flower', color: colors.inkRed }}>
-              🎁 Regalo de bienvenida: Ebook “El hogar como escuela de vida”
+          {/* METODOLOGÍA */}
+          <div className="mt-8 px-2">
+            <h4 className="font-bold text-xl mb-3" style={{ color: colors.inkRed }}>
+              Metodología Discovery Active Learning (2 a 12 años)
+            </h4>
+            <p className="mb-4">
+              A través de mi experiencia docente, he perfeccionado un método donde el niño es el protagonista. No buscamos que memoricen; buscamos que descubran. Nuestro programa ofrece:
             </p>
-         
-            {/* BOTÓN ACTUALIZADO PARA IR AL FORMULARIO */}
-            <button 
-              onClick={() => {
-                // 1. Cambiamos la vista a formulario
-                setView('form');
-    
-                // 2. Esperamos un instante a que el formulario aparezca en el DOM y bajamos
-                setTimeout(() => {
-                  const element = document.getElementById('seccion-formulario');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }, 100); 
-              }}
-              className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-all hover:gap-4"
-              style={{ color: colors.inkBlue }}
-            >
-              Quiero empezar y recibir el Ebook <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            <ul className="space-y-3 ml-2">
+              <li className="flex gap-2 items-start">
+                <span className="text-xl leading-none" style={{ color: colors.inkRed }}>•</span>
+                <span><strong>Estructura pedagógica:</strong> Respaldada por mi trayectoria como docente.</span>
+              </li>
+              <li className="flex gap-2 items-start">
+                <span className="text-xl leading-none" style={{ color: colors.inkRed }}>•</span>
+                <span><strong>Flexibilidad real:</strong> Adaptada a las dinámicas de un hogar real.</span>
+              </li>
+              <li className="flex gap-2 items-start">
+                <span className="text-xl leading-none" style={{ color: colors.inkRed }}>•</span>
+                <span><strong>Aprendizaje Activo:</strong> Herramientas para que el conocimiento sea duradero y emocionante.</span>
+              </li>
+            </ul>
           </div>
+
+          {/* LLAMADO A LA ACCIÓN Y EBOOK */}
+          <div className="mt-10 bg-green-50/40 p-6 md:p-8 rounded-xl border border-green-100 shadow-sm">
+            <h4 className="font-bold text-2xl mb-3" style={{ fontFamily: 'Indie Flower', color: colors.inkGreen }}>
+              Empieza hoy mismo: El aprendizaje no puede esperar
+            </h4>
+            <p className="mb-4">
+              Te invito a conocer un programa diseñado para darte paz mental como padres y herramientas de vida a tus hijos. Únete a las familias que ya educan desde la autonomía y el respeto.
+            </p>
+            <p className="mb-6 font-medium text-gray-800">
+              Te invito a explorar nuestra página y a llenar tus datos. Da el primer paso.
+            </p>
+        
+            <div className="border-t border-dashed border-green-200 pt-6 mt-2">
+              <p className="font-bold text-xl mb-6" style={{ fontFamily: 'Indie Flower', color: colors.inkRed }}>
+                🎁 Como bienvenida a nuestra comunidad, te enviaré directamente a tu correo nuestro Ebook: “El hogar como escuela de vida”
+              </p>
+           
+              {/* BOTÓN CON SCROLL HACIA EL FORMULARIO */}
+              <button 
+                onClick={() => {
+                  setView('form');
+                  setTimeout(() => {
+                    const element = document.getElementById('seccion-formulario');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }, 100); 
+                }}
+                className="w-full sm:w-auto group flex justify-center items-center gap-2 text-sm md:text-base font-bold uppercase tracking-widest transition-all hover:gap-4 bg-yellow-100 hover:bg-yellow-200 py-4 px-6 rounded-lg shadow-md"
+                style={{ color: colors.inkBlue }}
+              >
+                Dar el primer paso y recibir Ebook <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
+
         </div>
       </HandDrawnBorder>
     </div>
@@ -298,7 +345,11 @@ export default function App() {
                   <HandDrawnBorder className={`bg-white h-full cursor-pointer shadow-lg ${readSections.includes(section.id) ? 'bg-green-50/30' : ''}`}>
                     <div className="p-6 h-full flex flex-col" onClick={() => handleSectionClick(section.id)}>
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="p-3 rounded-full border-2 border-dashed" style={{ borderColor: section.colorCode, color: section.colorCode }}>{section.icon}</div>
+                        {/* Redujimos p-3 a p-1 para que la imagen o mosaico encaje mejor en el anillo punteado */}
+                        <div className="p-1 rounded-full border-2 border-dashed" style={{ borderColor: section.colorCode }}>
+                          {section.icon}
+                        </div>
+                        
                         <h3 className="text-xl font-bold" style={{ fontFamily: 'Indie Flower', color: section.colorCode }}>{section.title}</h3>
                         {readSections.includes(section.id) && <CheckCircle className="ml-auto" style={{ color: colors.inkGreen }} />}
                       </div>
