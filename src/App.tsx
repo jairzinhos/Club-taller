@@ -365,7 +365,8 @@ export default function App() {
       <main className="relative z-10 max-w-6xl mx-auto px-4">
         {view === 'infographic' && (
           <div className="animate-in fade-in duration-700">
-            <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {/* Agregamos 'grid' para activar la rejilla y 'gap-6' para el espacio entre tarjetas */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {contentSections.map((section) => (
                 <div key={section.id} 
                      className={`transition-all duration-500 transform ${expandedSection === section.id ? 'lg:col-span-2 row-span-2' : 'hover:-translate-y-1'}`}>
