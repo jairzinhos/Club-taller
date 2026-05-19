@@ -5,6 +5,9 @@ import arteImg from './assets/Arte-Club-Taller.jpg';
 import musicaImg from './assets/musica-Club-Taller.png';
 import inglesImg from './assets/Ingles-Club-Taller.jpg';
 import gradosImg from './assets/de-Jardin-a-quinto-Club-Taller.jpg';
+// Agrega estas dos líneas junto a las importaciones de imágenes que ya tenías
+import matematicasImg from './assets/matematicas-club-taller.jpg';
+import programacionImg from './assets/programacion-club-taller.jpg';
 import comunidadImg from './assets/Comunidad-Homeschool.jpg';
 import React, { useState } from 'react';
 import { 
@@ -48,39 +51,63 @@ const contentSections = [
   {
     id: 'methodology',
     title: 'Discovery Active Learning',
-    icon: <img src={discoveryImg} alt="Discovery Active Learning" className="w-14 h-14 rounded-full object-cover shadow-sm" />,
+    icon: <img src={discoveryImg} alt="Discovery Active Learning" className="w-14 h-14 rounded-full object-cover shadow-md border border-gray-100" />,
     colorCode: colors.inkBlue,
     description: "Nuestra metodología propia. Aprendizaje significativo basado en el descubrimiento.",
     details: ["Proyectos e Investigación.", "Criterio propio.", "Evaluación cualitativa.", "Planeación estratégica."]
   },
   {
+    id: 'math',
+    title: 'Matemáticas Vivas',
+    icon: <img src={matematicasImg} alt="Matemáticas Vivas" className="w-14 h-14 rounded-full object-cover shadow-md border border-gray-100" />,
+    colorCode: colors.inkRed,
+    description: "El arte de descubrir el mundo. Las matemáticas no se memorizan: se viven, se tocan y se disfrutan.",
+    details: [
+      "Matemáticas en las manos: Material concreto (regletas de Cuisenaire).", 
+      "Mente y cuerpo en movimiento: Sumar saltando y multiplicando con ritmos.", 
+      "Retos para la vida: Premiamos la curiosidad y perder el miedo al error."
+    ]
+  },
+  {
+    id: 'structure',
+    title: 'Estructura y Programación',
+    icon: <img src={programacionImg} alt="Estructura y Programación" className="w-14 h-14 rounded-full object-cover shadow-md border border-gray-100" />,
+    colorCode: colors.inkGreen,
+    description: "Un camino claro, flexible y con sentido para despertar el pensamiento lógico y crítico.",
+    details: [
+      "Rutas de 16 Semanas: Bloques estructurados sin prisa.", 
+      "Enfoque de Singapur: De la exploración a la abstracción.", 
+      "Aprendizaje por Proyectos (ABP): Retos reales e integrados.",
+      "Evaluación Formativa: Bitácoras y gestión del error, sin exámenes estresantes."
+    ]
+  },
+  {
     id: 'arts',
     title: 'Arte, Música e Inglés',
-    // Mosaico de 3 imágenes superpuestas
     icon: (
-      <div className="relative w-16 h-16 transform hover:scale-110 transition-transform">
+      <div className="relative w-16 h-16 transform hover:scale-105 transition-transform duration-300">
         <img src={arteImg} alt="Arte" className="absolute top-0 left-0 w-10 h-10 rounded-full object-cover border-2 border-white shadow-md z-10" />
         <img src={musicaImg} alt="Música" className="absolute bottom-0 left-2 w-9 h-9 rounded-full object-cover border-2 border-white shadow-md z-20" />
         <img src={inglesImg} alt="Inglés" className="absolute top-1 right-0 w-10 h-10 rounded-full object-cover border-2 border-white shadow-md z-30" />
       </div>
     ),
-    colorCode: colors.inkRed,
+    colorCode: colors.inkBlue,
     description: "No son 'relleno', son la base. El juego y la música son ejes transversales.",
     details: ["Arte y música integrada.", "Inglés natural.", "Expresión corporal."]
   },
   {
     id: 'grades',
     title: 'De Jardín a Quinto',
-    icon: <img src={gradosImg} alt="De Jardín a Quinto" className="w-14 h-14 rounded-full object-cover shadow-sm" />,
-    colorCode: colors.inkGreen,
+    icon: <img src={gradosImg} alt="De Jardín a Quinto" className="w-14 h-14 rounded-full object-cover shadow-md border border-gray-100" />,
+    colorCode: colors.inkRed,
     description: "Acompañamos y certificamos procesos de educación en casa.",
     details: ["Niños de 1 a 12 años.", "Certificado Min. Educación.", "Sesiones en tiempo real."]
   },
   {
     id: 'community',
     title: 'Comunidad Homeschool',
-    icon: <img src={comunidadImg} alt="Comunidad" className="w-14 h-14 rounded-full object-cover shadow-sm" />,
-    colorCode: colors.inkBlue,
+    icon: <img src={comunidadImg} alt="Comunidad" className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-white" />,
+    colorCode: colors.inkGreen,
     description: "Apoyamos a las familias con una propuesta flexible y personalizada.",
     details: ["Acompañamiento a padres.", "Cajita mensual física.", "Escuela para padres."]
   }
@@ -338,7 +365,7 @@ export default function App() {
       <main className="relative z-10 max-w-6xl mx-auto px-4">
         {view === 'infographic' && (
           <div className="animate-in fade-in duration-700">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {contentSections.map((section) => (
                 <div key={section.id} 
                      className={`transition-all duration-500 transform ${expandedSection === section.id ? 'lg:col-span-2 row-span-2' : 'hover:-translate-y-1'}`}>
@@ -357,7 +384,8 @@ export default function App() {
                       {expandedSection === section.id ? (
                         <div className="animate-in slide-in-from-top-2 flex-grow">
                           <p className="text-gray-800 mb-3 font-medium text-lg">{section.description}</p>
-                          <ul className="space-y-2 bg-yellow-50 p-3 rounded border border-yellow-200 transform rotate-1">
+                          {/* Cambiamos a shadow-sm y un color de texto un poco más firme para que sea muy fácil de leer */}
+                          <ul className="space-y-2 bg-yellow-50 p-4 rounded-lg border border-yellow-200 shadow-sm transform rotate-1 text-base md:text-lg">
                             {section.details.map((detail, i) => (
                               <li key={i} className="flex items-start gap-2 text-gray-700">• {detail}</li>
                             ))}
@@ -390,7 +418,8 @@ export default function App() {
     Mira cómo nuestras familias viven la experiencia Club Taller y el progreso real de sus hijos.
   </p>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {/* Cambiamos a md:grid-cols-2 para tener una cuadrícula simétrica de 2x2 para los 4 videos */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
     {[
       { 
         id: "3d-C3sXhRgk", 
@@ -400,8 +429,8 @@ export default function App() {
       },
       { 
         id: "ZM8DwtPyQZE", 
-        name: "Iam Emanuel (5 años)", 
-        family: "Familia Agudelo Cubes",
+        name: "Marquito", 
+        family: "Familia de Carolina Cubes",
         quote: "Desarrollo integral: lectura, escritura y clases de música."
       },
       { 
@@ -409,10 +438,16 @@ export default function App() {
         name: "María José (4 años)", 
         family: "Familia Benavides Galvis",
         quote: "Estimulación temprana, arte e inglés desde el juego."
+      },
+      { 
+        id: "Dd_cvtLZFUU", 
+        name: "Alison (8 años)", 
+        family: "Familia de Gerson Barrera",
+        quote: "Metodologías estructuradas que fortalecen la disciplina y la felicidad al aprender."
       }
     ].map((video, index) => (
       <div key={index} className="flex flex-col">
-        <HandDrawnBorder className="bg-white p-2 shadow-xl transform hover:rotate-1 transition-transform duration-300">
+        <HandDrawnBorder className={`bg-white p-2 shadow-xl transform transition-transform duration-300 ${index % 2 === 0 ? 'hover:-rotate-1' : 'hover:rotate-1'}`}>
           <div className="relative pb-[177.77%] h-0 overflow-hidden rounded-lg bg-gray-100">
             <iframe 
               className="absolute top-0 left-0 w-full h-full"
