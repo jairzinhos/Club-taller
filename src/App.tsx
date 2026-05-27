@@ -58,27 +58,28 @@ const contentSections = [
   },
   {
     id: 'math',
-    title: 'Matemáticas Vivas',
-    icon: <img src={matematicasImg} alt="Matemáticas Vivas" className="w-14 h-14 rounded-full object-cover shadow-md border border-gray-100" />,
+    title: 'Matemáticas',
+    icon: <img src={matematicasImg} alt="Matemáticas" className="w-14 h-14 rounded-full object-cover shadow-md border border-gray-100" />,
     colorCode: colors.inkRed,
-    description: "El arte de descubrir el mundo. Las matemáticas no se memorizan: se viven, se tocan y se disfrutan.",
+    description: "Pensamiento Lógico-Matemático a través del Discovery Active English. Transformamos las matemáticas en una experiencia viva, guiando a los niños para que descubran las regularidades del mundo en inglés.",
     details: [
-      "Matemáticas en las manos: Material concreto (regletas de Cuisenaire).", 
-      "Mente y cuerpo en movimiento: Sumar saltando y multiplicando con ritmos.", 
-      "Retos para la vida: Premiamos la curiosidad y perder el miedo al error."
+      "El Enfoque CPA (Concreto-Pictórico-Abstracto): El aprendizaje entra por las manos. Antes del papel, exploran conceptos interactuando con herramientas como regletas de Cuisenaire.",
+      "Active Math & Language: Integramos el inglés de manera orgánica. El vocabulario se asimila naturalmente mientras el niño manipula material y soluciona retos.",
+      "Indagación y Desafíos Reales: Aplican la geometría, medición y estadística para resolver misiones, diseñar mapas de relieve o calcular rutas de navegación.",
+      "Seguridad Emocional ante el Reto: Ambiente libre de presiones donde el error es un dato valioso para la investigación. Fomentamos la perseverancia y la autonomía."
     ]
   },
   {
     id: 'structure',
-    title: 'Estructura y Programación',
-    icon: <img src={programacionImg} alt="Estructura y Programación" className="w-14 h-14 rounded-full object-cover shadow-md border border-gray-100" />,
+    title: 'Programación y Pensamiento Computacional',
+    icon: <img src={programacionImg} alt="Programación" className="w-14 h-14 rounded-full object-cover shadow-md border border-gray-100" />,
     colorCode: colors.inkGreen,
-    description: "Un camino claro, flexible y con sentido para despertar el pensamiento lógico y crítico.",
+    description: "Bajo nuestra metodología Discovery Active Learning. No formamos programadores técnicos; empoderamos a los niños para que sean creadores críticos de su propio mundo digital.",
     details: [
-      "Rutas de 16 Semanas: Bloques estructurados sin prisa.", 
-      "Enfoque de Singapur: De la exploración a la abstracción.", 
-      "Aprendizaje por Proyectos (ABP): Retos reales e integrados.",
-      "Evaluación Formativa: Bitácoras y gestión del error, sin exámenes estresantes."
+      "Aprender haciendo (De lo concreto a la pantalla): El código cobra vida primero fuera de las pantallas usando el cuerpo y el juego antes de pasar a plataformas como Scratch.",
+      "Indagación y proyectos reales: No memorizamos teoría. Descubren el poder de la programación creando sus propios videojuegos, animaciones y simuladores.",
+      "Eje transversal del conocimiento: El código es el puente perfecto para aplicar de forma práctica las matemáticas, las ciencias, el arte y el inglés.",
+      "Resiliencia ante el error: El error no es un fracaso, sino una oportunidad de mejora (debugging). Enseñamos a descomponer problemas complejos en partes simples."
     ]
   },
   {
