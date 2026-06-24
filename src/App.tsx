@@ -9,7 +9,8 @@ import gradosImg from './assets/de-Jardin-a-quinto-Club-Taller.jpg';
 import matematicasImg from './assets/matematicas-club-taller.jpg';
 import programacionImg from './assets/programacion-club-taller.jpg';
 import comunidadImg from './assets/Comunidad-Homeschool.jpg';
-import React, { useState } from 'react';
+// changes
+// import React, { useState } from 'react';
 import { 
   Palette, 
   Music, 
